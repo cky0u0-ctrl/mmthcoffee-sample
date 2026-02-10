@@ -1,0 +1,241 @@
+.inner {
+    max-width: 1720px;
+    background-color: rgba(255, 0, 0, 0.3);
+    margin: 0 auto;
+    padding: 0 20px;
+
+}
+
+/* pc버전에서 안보이기 */
+.close-btn,
+.ham-btn {
+    position: absolute;
+    top: -9999px;
+}
+
+/* header */
+header {
+    position: fixed;
+    width: 100%;
+    background: rgba(255, 255, 255, 0.5);
+    z-index: 1000;
+    padding-top: 30px;
+}
+
+header>.inner {
+    display: flex;
+    justify-content: space-between;
+    /* 플렉스로붙이기 첫번째 왼쪽 마지막 오른쪽 안쪽여백 균등하게 */
+
+}
+
+.main-menu {
+    display: flex;
+
+}
+
+.main-menu>li {
+    position: relative;
+}
+
+.main-menu>li::after {
+    content: "";
+    display: block;
+    width: 0%;
+    /* 호버아니면 기본숨기기 */
+    height: 2px;
+    background: #8b644e;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    transition: 0.3s;
+    /* 보이는 애니메이션 
+    중앙에서 선이 펼쳐짐 - 시작위치 트랜스폼으로 지정
+    ===항상 화면 정가운데 두는방법 === +++ 디스플레이 플렉스쓰는게 더 간단함 */
+}
+
+.main-menu>li:hover::after {
+    width: 100%;
+}
+
+/* 호버되면 보이세요 */
+
+.main-menu>li:hover .sub-menu {
+    display: block;
+}
+
+/* 인라인요소 블럭처리되어 보이게하기 */
+
+.main-menu>li>a {
+    display: block;
+    color: #fff;
+    font-size: 1.25em;
+    font-weight: 500;
+    padding: 0 36px 30px;
+}
+
+.sub-menu {
+    display: none;
+    background: #ccc;
+    text-align: center;
+    line-height: 2.5;
+    position: absolute;
+    width: 100%;
+    /* 보모기준 포지션 - 바디기준이라 날라감 - li기준으로 다시주기(포지션) */
+
+}
+
+.sub-menu>li>a {}
+
+/* main */
+.main-slider {
+    position: relative;
+    overflow: hidden;
+    /* 넘쳐나는 거 가리기 */
+    height: 100vh;
+    /* 
+    사이즈 꼭 정해주어야함
+    ↓ 젤 간단한 방법
+    현재보이는 뷰**(부모기준아님)의 하이트 (높이)의 맞춰주기 */
+
+
+}
+
+.main-slider video {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    /* 부모 기준정해져야 비디오 크기맞게 . 스크롤없애기 */
+}
+
+/*  */
+section {
+    padding-top: 130px;
+
+}
+
+
+.section-title {
+    font-size: 3.75em;
+    color: #61443a;
+    font-weight: 700;
+    text-align: center;
+    line-height: 60px;
+    margin-bottom: 40px;
+}
+
+.new-menu-wrap {
+    background: url(../images/imgi_53_con01_bg.jpg);
+
+}
+
+.new-menu-wrap .tab-menu-list {
+    display: flex;
+    justify-content: center;
+}
+
+.new-menu-wrap .tab-menu-list>li>a {
+    font-size: 22px;
+    font-weight: 700;
+    display: block;
+    line-height: 62px;
+    text-align: center;
+    width: 288px;
+    /* background-size: cover; */
+    background-size: 100% 100%;
+    color: #a57454;
+    background-repeat: no-repeat;
+    position: relative;
+    /* 껏다켯다는 스크립트로 구동함 */
+}
+
+.new-menu-wrap .tab-menu-list>li:first-child>a {
+    background-image: url(../images/bg_1.png);
+    color: #fff;
+}
+
+.new-menu-wrap .tab-menu-list>li:nth-child(2)>a {
+    background-image: url(../images/bg-2.png);
+    /* width: 320px; */
+}
+
+.new-menu-wrap .tab-menu-list>li:nth-child(3)>a {
+    background-image: url(../images/bg-3.png);
+    /* width: 300px; */
+    margin-right: 12px;
+    margin-left: 5px;
+}
+
+.new-menu-wrap .tab-menu-list>li:nth-child(4)>a {
+    background-image: url(../images/bg-4.png);
+}
+
+.new-menu-wrap .tab-menu-list>li>a::after {
+    content: "";
+    display: none;
+    width: 8px;
+    height: 8px;
+    background: #fff;
+    border-radius: 50%;
+    position: absolute;
+    top: 10px;
+    left: 12px;
+}
+
+.new-menu-wrap .tab-menu-list>.active>a::after {
+    display: block;
+}
+
+.new-menu-wrap {
+    .tab-menu-content {
+        position: relative;
+        height: 550px;
+        width: 1200px;
+        margin: 0 auto;
+
+        >div {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            display: none;
+
+            >div {
+                display: flex;
+                align-items: center;
+
+                .img-box {
+                    flex: 1;
+                    text-align: center;
+                    position: relative;
+
+                    .product-aid1 {
+                        position: absolute;
+                        top: 100px;
+                        left: 50px;
+                    }
+
+                    .product {}
+
+                    .product-aid2 {
+                        position: absolute;
+                        bottom: 0;
+                        right: 0;
+                    }
+                }
+
+                .text-box {
+                    flex: 1;
+                }
+            }
+        }
+
+        .product01 {
+            display: block;
+        }
+    }
+}
+
+
+/* footer */
+/* aside */
